@@ -9,7 +9,7 @@ function initThree() {
   });
   renderer.setSize(width, height);
   document.body.appendChild(renderer.domElement);
-  renderer.setClearColor(0xffffff, 1.0);
+  renderer.setClearColor(0x00ff00, .3);
 }
 
 var scene;
@@ -35,22 +35,21 @@ function initCamera() {
 
 var light;
 function initLight() {
-  light = new THREE.AmbientLight(0xff0000);
+  light = new THREE.AmbientLight(0x000000);
   light.position.set(100, 100, 200);
   scene.add(light);
-  light = new THREE.PointLight(0x00ff00);
+  light = new THREE.PointLight(0xffffff);
   light.position.set(0, 0, 300);
   scene.add(light);
 }
 
 var cube;
-var mesh;
 function initObject() {
   var geometry = new THREE.CylinderGeometry(100, 150, 400);
-  var material = new THREE.MeshLambertMaterial({ color: 0xffffff });
-  mesh = new THREE.Mesh(geometry, material);
-  mesh.position = new THREE.Vector3(0, 0, 0);
-  scene.add(mesh);
+  var material = new THREE.MeshLambertMaterial({ color: 0xe0d7d7 });
+  cube = new THREE.Mesh(geometry, material);
+  cube.position = new THREE.Vector3(0, 0, 0);
+  scene.add(cube);
 }
 
 function start() {
@@ -62,7 +61,9 @@ function start() {
   animation();
 }
 function animation() {
-  mesh.position.x -= 1;
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.02;
+  cube.rotation.z += 0.03;
   renderer.render(scene, camera);
   requestAnimationFrame(animation);
   stats.update();

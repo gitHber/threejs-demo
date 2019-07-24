@@ -46,10 +46,10 @@ function initLight() {
 var cube;
 function initObject() {
   var geometry = new THREE.CylinderGeometry(100, 150, 400);
-  var material = new THREE.MeshLambertMaterial({ color: 0xffff00 });
-  var mesh = new THREE.Mesh(geometry, material);
-  mesh.position = new THREE.Vector3(0, 0, 0);
-  scene.add(mesh);
+  var material = new THREE.MeshLambertMaterial({ color: 0xa713c9 });
+  var cube = new THREE.Mesh(geometry, material);
+  cube.position = new THREE.Vector3(0, 0, 0);
+  scene.add(cube);
 }
 
 function start() {
@@ -62,6 +62,8 @@ function start() {
 }
 function animation() {
   camera.position.x = camera.position.x + 1;
+  camera.position.y = camera.position.y + 1;
+  camera.position.z = camera.position.z + 3;
   renderer.render(scene, camera);
   requestAnimationFrame(animation);
   stats.update();
