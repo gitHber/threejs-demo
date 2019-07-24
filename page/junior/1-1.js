@@ -9,7 +9,7 @@ var camera = new THREE.PerspectiveCamera(
 
 var renderer = new THREE.WebGLRenderer();
 
-renderer.setSize(window.innerWidth*0.8, window.innerHeight*0.8);
+renderer.setSize(window.innerWidth * 0.5, window.innerHeight * 0.5);
 
 document.body.appendChild(renderer.domElement);
 var geometry = new THREE.CubeGeometry(1, 1, 1);
